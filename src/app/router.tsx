@@ -1,14 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CarsPage } from "@/pages/CarsPage";
+import { CarDetailPage } from "@/pages/CarDetailPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { Brief } from "@/pages/Brief";
 
-/**
- * Add routes for your own pages here. `/` is the brief; you are free to move
- * it to `/brief` and put your work on `/`.
- */
 export const AppRouter = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Brief />} />
+      <Route path="/" element={<CarsPage />} />
+      <Route path="/cars/:id" element={<CarDetailPage />} />
+      <Route path="/brief" element={<Brief />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );
